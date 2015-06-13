@@ -10,43 +10,11 @@
         }
         -->
     </STYLE>
-    <script language="JavaScript" type="text/JavaScript" >
-        var baseUrl = 'http://127.0.0.1:8080/code';
-        function handleClickGet(form) {
-            var url = baseUrl;
-            if (undefined !== form.major.value && '' !== form.major.value) {
-                url += '/' + form.major.value;
-                if (undefined !== form.minor.value && '' !== form.minor.value) {
-                    url += '/' + form.minor.value;
-                }
-            }
-            sendWithAjax(url);
-            return false; // prevent further bubbling of event
-        }
-
-    function sendWithAjax(url) {
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.onreadystatechange = function() { processContents(httpRequest); };
-        httpRequest.open("GET", url, true);
-        httpRequest.send(null);
-    }
-    function processContents(httpRequest) {
-        if (httpRequest.readyState == 4) {
-            if ((httpRequest.status == 200) || (httpRequest.status == 0)) {
-                var val = JSON.stringify(JSON.parse(httpRequest.responseText), null, 2);
-                alert(val);
-                console.log(val);
-            } else {
-                var val = 'There was a problem with the request. ' + httpRequest.status + httpRequest.responseText;
-                alert(val);
-                console.log(val);
-            }
-        }
-    }
+    <script language="JavaScript" type="text/JavaScript" src="ajax-script.js">
     </script>
 </head>
 <body>
-<form name="getForm" onSubmit="JavaScript:handleClickGet(this)">
+<form id="getForm" name="getForm">
     <table  style="width:400">
         <tr>
             <th>GET</th>
@@ -64,9 +32,10 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><input type="submit" value="Submit"></td>
+            <td><button type="button" onclick="JavaScript:handleClickGet('GET', document.getElementById('getForm'))">Send</button></td>
         </tr>
     </table>
 </form>
+<textarea id='outputText' name='outputText' readonly="readonly" cols='80' rows='20'></textarea>
 </body>
 </html>
