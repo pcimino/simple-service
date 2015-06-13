@@ -14,28 +14,55 @@
     </script>
 </head>
 <body>
-<form id="getForm" name="getForm">
-    <table  style="width:400">
+<form id="dataForm" name="dataForm">
+    <table  style="width:1000px">
+        <tr><td>
+        <table  style="width:400">
+            <tr>
+                    <th>GET</th>
+                    <th>API</th>
+                    <th>Major</th>
+                    <th>Minor</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>code</td>
+                    <td><input type="text" name="major"></td>
+                    <td><input type="text" name="minor"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button type="button" onclick="JavaScript:handleClickGet('GET', document.getElementById('dataForm'))">GET</button></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button type="button" onclick="JavaScript:handleClickGet('PUT', document.getElementById('dataForm'))">PUT</button></td>
+                </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button type="button" onclick="JavaScript:handleClickGet('DELETE', document.getElementById('dataForm'))">DELETE</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button type="button" onclick="JavaScript:document.getElementById('dataForm').reset()">Clear</button></td>
+            </tr>
+        </table>
+        </td></tr>
         <tr>
-            <th>GET</th>
-            <th>API</th>
-            <th>Major</th>
-            <th>Minor</th>
+            <td>
+                <textarea id='outputText' name='outputText' readonly="readonly" cols='80' rows='20'></textarea>
+            </td>
         </tr>
-        <tr>
-            <td></td>
-            <td>code</td>
-            <td><input type="text" name="major"></td>
-            <td><input type="text" name="minor"></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button type="button" onclick="JavaScript:handleClickGet('GET', document.getElementById('getForm'))">Send</button></td>
-        </tr>
-    </table>
+        </table>
 </form>
-<textarea id='outputText' name='outputText' readonly="readonly" cols='80' rows='20'></textarea>
+
 </body>
 </html>

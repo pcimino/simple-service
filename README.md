@@ -39,8 +39,8 @@ Retruns all the codes and descritpions for a given Major code
 Returns a specific code for a given Major.Minor combination
 
 ## PUT
-### /code
-{ 'major': <value>, 'minor': <value>, 'description' }
+### /code/:major/:minor
+{ 'description' : 'text' }
 
 Will insert a new code or overwrite an existing code.
 

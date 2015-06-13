@@ -11,9 +11,20 @@ exports.findByMajor = function(req, res) {
 };
 
 exports.findByMajorMinor = function(req, res) {
-    console.log('Find Codes mapped to ' + req.params.major + '.' + req.params.minor);
+    console.log('Find Code mapped to ' + req.params.major + '.' + req.params.minor);
     res.send(getCodeByMajorMinor(req.params.major, req.params.minor));
 };
+
+exports.addUpdateMajorMinor = function(req, res) {
+    console.log('Add/Update code ' + req.params.major + '.' + req.params.minor + ' : ' + req.params.description);
+    res.send(getCodeByMajorMinor(req.params.major, req.params.minor));
+};
+
+exports.deleteMajorMinor = function(req, res) {
+    console.log('Delete code mapped to ' + req.params.major + '.' + req.params.minor);
+    res.send(delCodeByMajorMinor(req.params.major, req.params.minor));
+};
+
 
 function getCodeByMajor(major) {
     for (var i = 0; i < localDatabase.length; i++) {
@@ -37,4 +48,21 @@ function getCodeByMajorMinor(major, minor) {
         }
     }
     return returnVal;
+}
+function delCodeByMajorMinor(major, minor) {
+    for (var i = 0; i < localDatabase.length; i++) {
+        if (major === localDatabase[i].major) {
+            for (var j = 0; j < localDatabase[i].value.length; j++) {
+                if (minor === localDatabase[i].value[j].minor) {
+                    localDatabase[i].value.splice(j, 1); // remove element
+                    if (localDatabase[i].value.length === 0) {
+                        // no more minor, remove major
+                        localDatabase.splice(i, 1); // remove element
+                    }
+                    return {'message':'Code ' + major + '.' + minor + ' deleted.'};
+                }
+            }
+        }
+    }
+    return {'message':'Code ' + major + '.' + minor + ' not found.'};
 }
