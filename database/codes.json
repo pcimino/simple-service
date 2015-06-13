@@ -1,0 +1,11 @@
+[
+    { "major":"1","value": [
+        {"minor":"1","description":"This is major.minor 1.1"},
+        {"minor":"2","description":"This is major.minor 1.2"}
+    ]},
+    { "major":"pizza", "value": [
+        { "minor":"cold", "description":"The pizza is still cold"},
+        { "minor":"frozen", "description":"Brrrrrr"},
+        { "minor":"burnt", "description":"Too crisp, even a bit blackened"}
+    ]}
+]

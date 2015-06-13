@@ -1,0 +1,33 @@
+{
+  "name": "simple-service",
+  "version": "0.0.1",
+  "description": "Simple REST Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pcimino/simple-service.git"
+  },
+  "keywords": [
+    "REST",
+    "micro",
+    "service"
+  ],
+  "author": "Paul L. Cimino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pcimino/simple-service/issues"
+  },
+  "homepage": "https://github.com/pcimino/simple-service",
+  "devDependencies": {
+    "express": "^4.12.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node node-server.js"
+  }
+}
