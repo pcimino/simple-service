@@ -23,37 +23,36 @@
                     <th>API</th>
                     <th>Major</th>
                     <th>Minor</th>
+                    <th>Description</th>
                 </tr>
                 <tr>
                     <td></td>
                     <td>code</td>
                     <td><input type="text" name="major"></td>
                     <td><input type="text" name="minor"></td>
+                    <td><input type="text" name="description"></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td><button type="button" onclick="JavaScript:handleClickGet('GET', document.getElementById('dataForm'))">GET</button></td>
+                    <td><button type="button" onclick="JavaScript:handleClickGet('PUT', document.getElementById('dataForm'))">PUT</button></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><button type="button" onclick="JavaScript:handleClickGet('PUT', document.getElementById('dataForm'))">PUT</button></td>
+                    <td><button type="button" onclick="JavaScript:handleClickGet('DELETE', document.getElementById('dataForm'))">DELETE</button></td>
+                    <td></td>
                 </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button type="button" onclick="JavaScript:handleClickGet('DELETE', document.getElementById('dataForm'))">DELETE</button></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><button type="button" onclick="JavaScript:document.getElementById('dataForm').reset()">Clear</button></td>
-            </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button type="button" onclick="JavaScript:document.getElementById('dataForm').reset()">Clear</button></td>
+                    <td></td>
+                </tr>
         </table>
         </td></tr>
         <tr>

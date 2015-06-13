@@ -5,6 +5,11 @@ function handleClickGet(operation, form) {
         url += '/' + form.major.value;
         if (undefined !== form.minor.value && '' !== form.minor.value) {
             url += '/' + form.minor.value;
+            console.log(form.description.value)
+            if (operation === 'PUT' && '' !== form.description.value) {
+                url += '/' + form.description.value;
+            }
+            console.log(operation +' : ' + url);
         }
     }
     sendWithAjax(operation, url);
@@ -20,9 +25,9 @@ function sendWithAjax(operation, url) {
 function processContents(httpRequest) {
     if (httpRequest.readyState == 4) {
         if ((httpRequest.status == 200) || (httpRequest.status == 0)) {
-            document.getElementById('outputText').value = JSON.stringify(JSON.parse(httpRequest.responseText), null, 2); // Place the returned HTML page inside the new node.
+            document.getElementById('outputText').value = JSON.stringify(JSON.parse(httpRequest.responseText), null, 2); 
         } else {
-            document.getElementById('outputText').value = 'There was a problem with the request. ' + httpRequest.status + httpRequest.responseText;
+            document.getElementById('outputText').value = 'There was a problem with the request.\r\n' + httpRequest.status + ' : ' + httpRequest.responseText;
         }
     }
 }

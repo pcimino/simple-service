@@ -39,10 +39,9 @@ Retruns all the codes and descritpions for a given Major code
 Returns a specific code for a given Major.Minor combination
 
 ## PUT
-### /code/:major/:minor
-{ 'description' : 'text' }
+### /code/:major/:minor/:description
 
-Will insert a new code or overwrite an existing code.
+Upsert: will insert a new code or overwrite an existing code.
 
 ### DELETE
 ### /code/:major/:minor 

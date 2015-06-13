@@ -8,7 +8,7 @@ var ip = '127.0.0.1';
 app.get('/code', codeSearch.findAll);
 app.get('/code/:major', codeSearch.findByMajor);
 app.get('/code/:major/:minor', codeSearch.findByMajorMinor);
-app.put('/code/:major/:minor', codeSearch.addUpdateMajorMinor);
+app.put('/code/:major/:minor/:description', codeSearch.addUpdateMajorMinor);
 app.del('/code/:major/:minor', codeSearch.deleteMajorMinor);
 
 app.get('/ping', function (req, res) {

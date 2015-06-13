@@ -16,8 +16,8 @@ exports.findByMajorMinor = function(req, res) {
 };
 
 exports.addUpdateMajorMinor = function(req, res) {
-    console.log('Add/Update code ' + req.params.major + '.' + req.params.minor + ' : ' + req.params.description);
-    res.send(getCodeByMajorMinor(req.params.major, req.params.minor));
+    console.log('Upsert code ' + req.params.major + '.' + req.params.minor + ' : ' + req.params.description);
+    res.send(upsertByMajorMinor(req.params.major, req.params.minor, req.params.description));
 };
 
 exports.deleteMajorMinor = function(req, res) {
@@ -63,6 +63,28 @@ function delCodeByMajorMinor(major, minor) {
                 }
             }
         }
+    }
+    return {'message':'Code ' + major + '.' + minor + ' not found.'};
+}
+
+function upsertByMajorMinor(major, minor, description) {
+    var newCode = {'major':major, 'value':[{'minor:':minor, 'description':description}]};
+    for (var i = 0; i < localDatabase.length; i++) {
+        if (major === localDatabase[i].major) {
+            foundMajor = true;
+            for (var j = 0; j < localDatabase[i].value.length; j++) {
+                if (minor === localDatabase[i].value[j].minor) {
+                    localDatabase[i].value[j].description = description;
+                    return newCode;
+                }
+            }
+            // got here, no minor value found
+            localDatabase[i].value.push({'minor':minor, 'description':description});
+            return newCode;
+        }
+        // got here, new Major code
+        localDatabase.push(newCode);
+        return newCode;
     }
     return {'message':'Code ' + major + '.' + minor + ' not found.'};
 }
