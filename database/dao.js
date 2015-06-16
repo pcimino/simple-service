@@ -60,10 +60,9 @@
                 localDatabase[i].value.push({'minor':minor, 'description':description});
                 return newCode;
             }
-            // got here, new Major code
-            localDatabase.push(newCode);
-            return newCode;
         }
-        return {'message':'Code ' + major + '.' + minor + ' not found.'};
+        // got here, new Major code
+        localDatabase.push(newCode);
+        return newCode;
     }
     
