@@ -47,7 +47,7 @@
     }
     
     exports.upsertByMajorMinorDAO = function(major, minor, description) {
-        var newCode = {'major':major, 'value':[{'minor:':minor, 'description':description}]};
+        var newCode = {'major':major, 'value':[{'minor':minor, 'description':description}]};
         for (var i = 0; i < localDatabase.length; i++) {
             if (major.toLowerCase() === localDatabase[i].major.toLowerCase()) {
                 for (var j = 0; j < localDatabase[i].value.length; j++) {
