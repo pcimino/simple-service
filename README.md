@@ -45,4 +45,4 @@ Upsert: will insert a new code or overwrite an existing code.
 
 ### DELETE
 ### /code/:major/:minor 
-Removes a code form the database
+Removes a code from the database
